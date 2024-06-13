@@ -1,5 +1,8 @@
 # export-sections-json
-a simple plugin for Figjam to export the sections and their content as a simple JSON structure format. This makes it easier to paste and use the data in ChatGPT
+a simple plugin for Figjam to export the sections and their content in a simple JSON format. This makes it easier to paste and use the data in ChatGPT.
+
+### Check this Gif Demo
+![CleanShot 2024-06-13 at 22 29 16](https://github.com/TantanLight/export-sections-json/assets/73881697/2b5b2b6b-4145-48fa-88f0-2d48da7fe203)
 
 ## Below are the steps to get your plugin running. You can also find instructions at:
 
