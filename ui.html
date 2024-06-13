@@ -1,0 +1,33 @@
+<h2>Section Exporter</h2>
+<p>Selected sections: <span id="selectedCount">0</span></p>
+<button id="export">Get Section Data</button>
+<button id="copyToClipboard">Copy to Clipboard</button>
+<button id="cancel">Cancel</button>
+
+<textarea id="jsonData" rows="10" cols="45" readonly></textarea>
+
+<script>
+document.getElementById('export').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'create-json' } }, '*');
+};
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'close-plugin' } }, '*');
+};
+
+document.getElementById('copyToClipboard').onclick = () => {
+  const jsonData = document.getElementById('jsonData');
+  jsonData.select();
+  document.execCommand('copy');
+};
+
+window.onmessage = (event) => {
+  if (event.data.pluginMessage.type === 'selection-count') {
+    document.getElementById('selectedCount').textContent = event.data.pluginMessage.count;
+  }
+
+  if (event.data.pluginMessage.type === 'json-data') {
+    document.getElementById('jsonData').value = event.data.pluginMessage.data;
+  }
+};
+</script>
